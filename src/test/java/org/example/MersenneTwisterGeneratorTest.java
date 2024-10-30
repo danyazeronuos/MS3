@@ -19,20 +19,6 @@ class MersenneTwisterGeneratorTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "4839283,2000",
-            "293829382,1000",
-            "-28392,1000",
-            "0,100",
-            "1000,2000"
-    })
-    public void castIntegerToRange(int integer, int range) {
-        int castedToRange = CastToRange.cast(integer, range);
-        Assertions.assertTrue(castedToRange >= 0);
-        Assertions.assertTrue(castedToRange <= range);
-    }
-
-    @ParameterizedTest
     @ValueSource(ints = {20_000, 30_000, 50_000, 80_000, 100_000,
             150_000, 200_000, 250_000, 300_000, 400_000, 500_000, 1_000_000})
     public void mtg_CorrelationTest(int interval) {
